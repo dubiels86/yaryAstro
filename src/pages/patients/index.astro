@@ -5,60 +5,82 @@ import MainLayout from "@/layouts/MainLayout.astro";
 <MainLayout>
   <section class="py-12 bg-gray-50 dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Header con título y botón en línea -->
+      <!-- Header con título y botones en línea -->
       <div class="flex items-center justify-between mt-8">
         <h1 class="text-xl font-bold text-gray-900 dark:text-white sm:text-5xl">
           Pacientes
         </h1>
         
-        <!-- Botón mejorado para agregar nuevo paciente -->
-        <button
-          type="button"
-          class="group inline-flex items-center justify-center rounded-full sm:rounded-lg px-3 py-3 sm:px-6 sm:py-3 text-sm font-bold text-neutral-50 bg-orange-400 hover:bg-orange-500 active:bg-orange-600 border border-transparent shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-slate-900 disabled:pointer-events-none disabled:opacity-50 transform hover:scale-105 active:scale-95"
-          id="addPatientBtn"
-          aria-label="Agregar nuevo paciente"
-          title="Agregar nuevo paciente"
-        >
-          <!-- Icono mejorado con animación -->
-          <svg 
-            class="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 20 20" 
-            fill="currentColor"
-            aria-hidden="true"
+        <div class="flex gap-3">
+          <!-- Botón mejorado para ir a consultas -->
+          <a
+            href="/consultations"
+            class="group inline-flex items-center justify-center rounded-full sm:rounded-xl px-3 py-3 sm:px-5 sm:py-3 text-sm font-bold text-white bg-blue-600 dark:text-blue-400 border border-transparent shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-slate-900 transform hover:scale-105 active:scale-95 btn-consultations"
+            aria-label="Ir a consultas"
+            title="Ir a consultas"
           >
-            <path 
-              fill-rule="evenodd" 
-              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" 
-              clip-rule="evenodd" 
-            />
-          </svg>
-          <span class="hidden sm:inline ml-2">Nuevo Paciente</span>
+            <!-- Icono mejorado con animación -->
+            <svg 
+              class="h-5 w-5 transition-transform duration-300 group-hover:rotate-12" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="hidden sm:inline ml-2">Consultas</span>
+          </a>
           
-          <!-- Indicador de carga -->
-          <svg 
-            class="hidden h-4 w-4 animate-spin ml-2" 
-            id="loadingSpinner"
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+          <!-- Botón mejorado para agregar nuevo paciente -->
+          <button
+            type="button"
+            class="group inline-flex items-center justify-center rounded-full sm:rounded-xl px-3 py-3 sm:px-6 sm:py-3 text-sm font-bold text-neutral-50 bg-orange-400 hover:bg-orange-500 active:bg-orange-600 border border-transparent shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-slate-900 disabled:pointer-events-none disabled:opacity-50 transform hover:scale-105 active:scale-95"
+            id="addPatientBtn"
+            aria-label="Agregar nuevo paciente"
+            title="Agregar nuevo paciente"
           >
-            <circle 
-              class="opacity-25" 
-              cx="12" 
-              cy="12" 
-              r="10" 
-              stroke="currentColor" 
-              stroke-width="4"
-            ></circle>
-            <path 
-              class="opacity-75" 
-              fill="currentColor" 
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
-        </button>
+            <!-- Icono mejorado con animación -->
+            <svg 
+              class="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path 
+                fill-rule="evenodd" 
+                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" 
+                clip-rule="evenodd" 
+              />
+            </svg>
+            <span class="hidden sm:inline ml-2">Nuevo Paciente</span>
+            
+            <!-- Indicador de carga -->
+            <svg 
+              class="hidden h-4 w-4 animate-spin ml-2" 
+              id="loadingSpinner"
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle 
+                class="opacity-25" 
+                cx="12" 
+                cy="12" 
+                r="10" 
+                stroke="currentColor" 
+                stroke-width="4"
+              ></circle>
+              <path 
+                class="opacity-75" 
+                fill="currentColor" 
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- Buscador de pacientes -->
@@ -72,7 +94,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
           <input
             type="text"
             id="searchInput"
-            class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-700 dark:text-white sm:text-sm"
+            class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl shadow-sm placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-700 dark:text-white sm:text-sm"
             placeholder="Buscar pacientes por nombre, diagnóstico..."
             aria-label="Buscar pacientes"
           />
@@ -80,7 +102,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
         <div class="flex gap-2">
           <select
             id="filterField"
-            class="block px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-700 dark:text-white text-sm"
+            class="block px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-700 dark:text-white text-sm"
             aria-label="Campo de filtro"
           >
             <option value="all">Todos los campos</option>
@@ -91,7 +113,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
           <button
             type="button"
             id="clearSearchBtn"
-            class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-700 hover:bg-gray-50 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-slate-900 transition-colors duration-200"
+            class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-slate-700 hover:bg-gray-50 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-slate-900 transition-colors duration-200"
             aria-label="Limpiar búsqueda"
             title="Limpiar búsqueda"
           >
@@ -313,7 +335,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
           <button 
             data-patient-id="${patient.id}"
             data-action="edit"
-            class="inline-flex items-center justify-center p-2 text-yellow-500 hover:text-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 rounded-lg transition-colors duration-200 mr-2"
+            class="inline-flex items-center justify-center p-2 text-yellow-500 hover:text-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 rounded-xl transition-colors duration-200 mr-2"
             aria-label="Editar paciente ${patient.name}"
             title="Editar paciente"
           >
@@ -324,7 +346,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
           <button 
             data-patient-id="${patient.id}"
             data-action="delete"
-            class="inline-flex items-center justify-center p-2 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors duration-200"
+            class="inline-flex items-center justify-center p-2 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors duration-200"
             aria-label="Eliminar paciente ${patient.name}"
             title="Eliminar paciente"
           >
@@ -619,4 +641,34 @@ import MainLayout from "@/layouts/MainLayout.astro";
 
   // Renderizar pacientes iniciales
   renderPatients();
+</script>
+
+<style>
+  /* Estilos adicionales para mejorar la apariencia de los botones */
+  .btn-consultations {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.25);
+  }
+  
+  .btn-consultations:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.35);
+  }
+  
+  .dark .btn-consultations {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    box-shadow: 0 4px 14px 0 rgba(30, 64, 175, 0.3);
+  }
+  
+  .dark .btn-consultations:hover {
+    background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+    box-shadow: 0 6px 20px 0 rgba(30, 64, 175, 0.4);
+  }
+  
+  /* Mejorar transiciones */
+  .btn-consultations,
+  .btn-consultations:hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
 </script> 
