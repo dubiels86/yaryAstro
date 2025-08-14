@@ -1,0 +1,107 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const temas = [
+  {
+    titulo: "Diabetes Mellitus",
+    descripcion: "La diabetes es una enfermedad crónica que afecta la forma en que el cuerpo procesa la glucosa. Existen dos tipos principales:",
+    subtemas: [
+      "Diabetes Tipo 1: El cuerpo no produce insulina",
+      "Diabetes Tipo 2: El cuerpo no usa la insulina correctamente",
+      "Diabetes Gestacional: Durante el embarazo"
+    ],
+    icono: "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+  },
+  {
+    titulo: "Trastornos Tiroideos",
+    descripcion: "La glándula tiroides regula el metabolismo del cuerpo. Los trastornos más comunes incluyen:",
+    subtemas: [
+      "Hipotiroidismo: Tiroides poco activa",
+      "Hipertiroidismo: Tiroides hiperactiva",
+      "Nódulos tiroideos",
+      "Tiroiditis"
+    ],
+    icono: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+  },
+  {
+    titulo: "Trastornos Hormonales",
+    descripcion: "Los desequilibrios hormonales pueden afectar múltiples sistemas del cuerpo:",
+    subtemas: [
+      "Síndrome de Ovario Poliquístico (SOP)",
+      "Trastornos de la glándula pituitaria",
+      "Trastornos de las glándulas suprarrenales",
+      "Problemas de crecimiento y desarrollo"
+    ],
+    icono: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+  },
+  {
+    titulo: "Obesidad y Metabolismo",
+    descripcion: "El metabolismo y el peso corporal están estrechamente relacionados con la salud endocrina:",
+    subtemas: [
+      "Síndrome metabólico",
+      "Resistencia a la insulina",
+      "Trastornos del apetito",
+      "Manejo del peso y nutrición"
+    ],
+    icono: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+  }
+];
+---
+
+<MainLayout>
+  <section class="py-12 bg-gray-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
+          Temas de Endocrinología
+        </h1>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          Información detallada sobre las principales áreas de la endocrinología
+        </p>
+      </div>
+
+      <div class="mt-12 space-y-12">
+        {temas.map((tema) => (
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-8">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 text-yellow-500 dark:text-yellow-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d={tema.icono} />
+                    </svg>
+                  </div>
+                </div>
+                <div class="ml-5">
+                  <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+                    {tema.titulo}
+                  </h2>
+                </div>
+              </div>
+              
+              <p class="mt-4 text-gray-600 dark:text-gray-400">
+                {tema.descripcion}
+              </p>
+
+              <div class="mt-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  Subtemas:
+                </h3>
+                <ul class="space-y-2">
+                  {tema.subtemas.map((subtemas) => (
+                    <li class="flex items-center text-gray-600 dark:text-gray-400">
+                      <svg class="h-5 w-5 text-yellow-500 dark:text-yellow-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      {subtemas}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout> 
